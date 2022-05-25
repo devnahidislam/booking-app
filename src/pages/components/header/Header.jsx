@@ -138,6 +138,7 @@ const Header = ({ type }) => {
                     editableDateInputs={true}
                     onChange={(item) => setDate([item.selection])}
                     moveRangeOnFirstSelection={false}
+                    minDate = {new Date()}
                     ranges={date}
                     className="datePicker"
                   />

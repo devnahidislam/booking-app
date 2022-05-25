@@ -1,11 +1,11 @@
 import './propertyList.css'
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel';
 
 const PropertyList = () => {
   return (
-    <Carousel showThumbs={false} showIndicators={false} centerMode={true} centerSlidePercentage="35" infiniteLoop={true} swipeable={true} showStatus={false} stopOnHover={true} className='pList'>
+    <div className='pList'>
       <div className="pListItem">
         <img src="https://t-cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o= " className='pListImg' alt="Hotels" />
         <div className="pListTitle">
@@ -48,7 +48,7 @@ const PropertyList = () => {
           <h5>68741 Glamping</h5>
         </div>
       </div>
-    </Carousel>
+    </div>
   )
 }
 
