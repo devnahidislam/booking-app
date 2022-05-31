@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
 });
 // Edit / Update
 router.put("/:id", async (req, res) => {
-
   try {
     const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true});
     res.status(200).json(updatedHotel);
@@ -25,6 +24,14 @@ router.put("/:id", async (req, res) => {
   }
 });
 // Delete
+router.delete("/:id", async (req, res) => {
+  try {
+    await Hotel.findByIdAndDelete(req.params.id);
+    res.status(200).json("Hotel has been Deleted.");
+  } catch (error) {
+    res.status(500).json(err);
+  }
+});
 // Get
 // Get All
 export default router
