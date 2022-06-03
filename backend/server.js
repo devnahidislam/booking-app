@@ -20,4 +20,15 @@ app.use("/api/user", userRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMsg = err.message || "Something went wrong.";
+  return res.status(errorStatus).json({
+    success: false,
+    status: errorStatus,
+    message: errorMsg,
+    stack: err.stack
+  })
+})
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
