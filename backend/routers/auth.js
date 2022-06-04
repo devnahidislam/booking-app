@@ -1,12 +1,8 @@
 
 import express from "express";
+import { register } from "../controllers/authController.js";
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send("Congratulation! It's Express backend. From 5000")
-});
-router.get('/register', (req, res) => {
-  res.send("Congratulation! It's Express Register Route")
-});
+router.post('/register', register);
 
 export default router
