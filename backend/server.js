@@ -3,6 +3,8 @@ import authRoute from './routers/auth.js'
 import userRoute from './routers/user.js'
 import hotelsRoute from './routers/hotels.js'
 import roomsRoute from './routers/rooms.js'
+import cookieParser from 'cookie-parser';
+
 import dotenv from 'dotenv'
 dotenv.config();
 import connectDB from './config/db.js'
@@ -13,6 +15,8 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json())
+
+app.use(cookieParser());
 
 // Middlewares
 app.use("/api/auth", authRoute);
