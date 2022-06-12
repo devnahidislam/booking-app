@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // Middlewares
 app.use("/api/auth", authRoute);
-app.use("/api/user", userRoute);
+app.use("/api/users", userRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 
