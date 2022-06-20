@@ -1,6 +1,6 @@
 import express from 'express';
 import authRoute from './routers/auth.js'
-import userRoute from './routers/user.js'
+import userRoute from './routers/users.js'
 import hotelsRoute from './routers/hotels.js'
 import roomsRoute from './routers/rooms.js'
 import cookieParser from 'cookie-parser';
