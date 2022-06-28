@@ -20,8 +20,8 @@ router.put("/:id", verifyUser, updateUser);
 // Delete
 router.delete("/:id", verifyUser, deleteUser);
 // Get
-router.get("/:id", verifyUser, getUser);
+router.get("/user/:uid", verifyUser, getUser);
 // Get All
-router.get("/", verifyAdmin, getAllUsers);
+router.get("/:id", verifyAdmin, getAllUsers);
 
 export default router

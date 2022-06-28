@@ -1,6 +1,7 @@
 import Hotel from "../models/Hotel.js";
 
 export const createHotel = async (req, res, next) => {
+  // console.log('i am verified admin')
   const newHotel = new Hotel(req.body);
   try {
     const savedHotel = await newHotel.save();
@@ -11,7 +12,7 @@ export const createHotel = async (req, res, next) => {
 }
 export const updateHotel = async (req, res, next) => {
   try {
-    const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true});
+    const updatedHotel = await Hotel.findByIdAndUpdate(req.params.hid, { $set: req.body }, {new: true});
     res.status(200).json(updatedHotel);
   } catch (error) {
     next(error);
@@ -19,7 +20,7 @@ export const updateHotel = async (req, res, next) => {
 }
 export const deleteHotel = async (req, res, next) => {
   try {
-    await Hotel.findByIdAndDelete(req.params.id);
+    await Hotel.findByIdAndDelete(req.params.hid);
     res.status(200).json("Hotel has been Deleted.");
   } catch (error) {
     next(error);
@@ -27,7 +28,7 @@ export const deleteHotel = async (req, res, next) => {
 }
 export const getHotel = async (req, res, next) => {
   try {
-    const hotel = await Hotel.findById(req.params.id);
+    const hotel = await Hotel.findById(req.params.hid);
     res.status(200).json(hotel);
   } catch (error) {
     next(error);
