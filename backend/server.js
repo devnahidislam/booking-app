@@ -4,6 +4,7 @@ import userRoute from './routers/users.js'
 import hotelsRoute from './routers/hotels.js'
 import roomsRoute from './routers/rooms.js'
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import dotenv from 'dotenv'
 dotenv.config();
@@ -11,7 +12,6 @@ import connectDB from './config/db.js'
 connectDB();
 
 const PORT = process.env.PORT || 5000;
-
 const app = express();
 
 app.use(express.json())
@@ -23,6 +23,13 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
+
+// app.use(
+//   cors({
+//     origin:"http://localhost:3000",
+//     methods: "GET"
+//   })
+// );
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
