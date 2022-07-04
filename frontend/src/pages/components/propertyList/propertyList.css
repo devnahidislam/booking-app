@@ -20,6 +20,8 @@
 }
 .pListTitle>h2{
   font-size: 18px;
+  color: #444;
+  text-transform: capitalize;
 }
 .pListTitle>h5{
   font-size: 14px;
