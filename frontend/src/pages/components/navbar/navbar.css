@@ -12,13 +12,18 @@
   align-items: center;
   color: white;
 }
+.navContainer a{
+  color: inherit;
+  text-decoration: none;
+}
 .logo{
   font-weight: bold;
 }
 .navButton{
-  margin-left: 20px;
+  margin-left: 10px;
   bottom: none;
   padding: 5px 10px;
   cursor: pointer;
   color: #003580;
+  font-weight: bold;
 }
