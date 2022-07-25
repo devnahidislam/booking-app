@@ -13,7 +13,7 @@ const SearchItem = ({item}) => {
           Studio Apartment with Air conditioning
         </span>
         <span className="siFeatures">
-          {item.desc}
+          {item.desc.slice(0,100)}...
         </span>
         <span className="siCancelOp">Free cancellation </span>
         <span className="siCancelOpSubtitle">
