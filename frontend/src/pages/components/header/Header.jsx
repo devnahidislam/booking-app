@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -16,6 +16,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns';
 import { SearchContext } from './../../../context/SearchContext';
+import { AuthContext } from '../../../context/AuthContext';
 
 const Header = ({ type }) => {
 
@@ -79,6 +80,8 @@ const Header = ({ type }) => {
     navigate('/hotels', { state: {destination, date, options} });
   };
 
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="header">
       <div
@@ -118,7 +121,7 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Booking.com account
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+            {!user && <Link to="/login" className="headerBtn">Sign in / Register</Link>}
 
             <div className="headerSearch">
               <div className="headerSearchItem">

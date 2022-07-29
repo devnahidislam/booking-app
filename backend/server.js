@@ -24,12 +24,11 @@ app.use("/api/users", userRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 
-// app.use(
-//   cors({
-//     origin:"http://localhost:3000",
-//     methods: "GET"
-//   })
-// );
+app.use(
+  cors({
+    origin:"http://localhost:3000"
+  })
+);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
