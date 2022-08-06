@@ -12,9 +12,11 @@ import {
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from './../../hooks/useFetch';
 import { SearchContext } from './../../context/SearchContext';
+import { AuthContext } from "../../context/AuthContext";
+import Reserve from "../../reserve/Reserve";
 
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
@@ -72,6 +74,19 @@ const Hotel = () => {
     return diffDays;
   }
   const days = dayDifference(date[0].endDate, date[0].startDate);
+
+  const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleBooking = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
+  }
   return (
     <div>
       <Navbar />
@@ -100,7 +115,7 @@ const Hotel = () => {
           </div>
         )}
         <div className="hotelWrapper">
-          <button className="bookNow">Reserve or Book Now!</button>
+          <button onClick={handleBooking} className="bookNow">Reserve or Book Now!</button>
           <h1 className="hotelTitle">{data.name}</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
@@ -136,15 +151,16 @@ const Hotel = () => {
                 excellent location score of 9.8!
               </span>
               <h2>
-                <b>${ days * data.cheapestPrice * options.room  }</b> ({days} Nights)
+                <b>${ days * data.cheapestPrice * options.room }</b> ({days} Nights)
               </h2>
-              <button>Reserve or Book Now!</button>
+              <button onClick={handleBooking}>Reserve or Book Now!</button>
             </div>
           </div>
         </div>
         <MailList />
         <Footer />
       </div>)}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };
