@@ -1,7 +1,7 @@
 {
   "name": "bookingapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend development with Express, Node and Mongodb.",
   "main": "server.js",
   "type": "module",
   "scripts": {
