@@ -48,6 +48,6 @@
   "description": "MERN Application",
   "main": "index.js",
   "repository": "https://github.com/devnahidislam/booking-app.git",
-  "author": "mdnahidislam",
+  "author": "devnahidislam",
   "license": "MIT"
 }
