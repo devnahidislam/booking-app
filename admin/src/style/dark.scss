@@ -6,15 +6,15 @@
     stroke: rgba(228, 228, 228, 0.228);
   }
 
-  .recharts-default-tooltip{
+  .recharts-default-tooltip {
     background-color: gray !important;
 
-    .recharts-tooltip-label{
+    .recharts-tooltip-label {
       color: azure;
     }
   }
-  .recharts-tooltip-item-list{
-    .recharts-tooltip-item{
+  .recharts-tooltip-item-list {
+    .recharts-tooltip-item {
       color: rgb(3, 176, 176) !important;
       text-transform: capitalize;
     }
@@ -67,45 +67,50 @@
   }
 
   .datatable {
-    .dataGrid{
+    .css-ptiqhd-MuiSvgIcon-root,
+    .css-1e2bxag-MuiDataGrid-root .MuiDataGrid-sortIcon {
+      color: azure;
+    }
+    
+    .dataGrid {
       color: lightgray;
       border: none;
 
-      .viewBtn, .deleteBtn {
+      .viewBtn,
+      .deleteBtn {
         color: gray;
         border: 1px solid lightgray;
 
-        &:hover{
+        &:hover {
           background-color: rgba(0, 128, 0, 0.225);
           color: azure;
           border: none;
         }
       }
-      .cellWithStatus{
+      .cellWithStatus {
         color: azure;
       }
     }
     //List table custom css
-    .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar{
+    .css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
       color: azure;
     }
-    .css-zylse7-MuiButtonBase-root-MuiIconButton-root{
+    .css-zylse7-MuiButtonBase-root-MuiIconButton-root {
       color: rgb(196, 196, 196);
     }
-    .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root{
-      color:lightgray;
+    .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+      color: lightgray;
     }
   }
 
-  .css-jtlhu6-MuiTablePagination-root{
+  .css-jtlhu6-MuiTablePagination-root {
     background-color: #333;
     color: azure;
   }
 
-  .newContainer{
-    input{
+  .newContainer {
+    input {
       color: lightgray;
     }
   }
-  
 }
