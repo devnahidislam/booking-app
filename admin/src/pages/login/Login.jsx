@@ -13,7 +13,7 @@ const Login = () => {
   const { loading, error, dispatch } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  
+
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -22,8 +22,12 @@ const Login = () => {
     dispatch({ type: 'LOGIN_START' });
     try {
       const res = await axios.post('/auth/login', credentials);
-      dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
-      navigate("/");
+      if (res.data.isAdmin) {
+        dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.details });
+        navigate('/');
+      } else {
+        dispatch({ type: 'LOGIN_FAILED', payload: {message: "You Are Not Admin"} });
+      }
     } catch (error) {
       dispatch({ type: 'LOGIN_FAILED', payload: error.response.data });
     }
@@ -33,7 +37,7 @@ const Login = () => {
     <div className="login">
       <div className="lContainer">
         <h1>Login</h1>
-        <span className='errMsg'>{error && <span>{error.message}</span>}</span>
+        <span className="errMsg">{error && <span>{error.message}</span>}</span>
         <input
           type="text"
           placeholder="Username"
@@ -51,7 +55,9 @@ const Login = () => {
         <button disabled={loading} onClick={handleLogin} className="loginBtn">
           Login
         </button>
-        <div className="signupLink">Not a member? <Link to="/">SignUp</Link></div>
+        <div className="signupLink">
+          Not a member? <Link to="/">SignUp</Link>
+        </div>
       </div>
     </div>
   );
