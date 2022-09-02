@@ -26,7 +26,8 @@ app.use("/api/rooms", roomsRoute);
 
 app.use(
   cors({
-    origin:"http://localhost:3000"
+    origin:"http://localhost:3000",
+    origin:"http://localhost:4000",
   })
 );
 
