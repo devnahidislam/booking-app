@@ -1,16 +1,16 @@
 // Temporary users data
 export const userColumns = [
-  { field: 'id', headerName: 'ID', width: 80 },
+  // { field: 'id', headerName: 'ID', width: 80 },
   {
     field: 'user',
     headerName: 'User',
-    width: 220,
+    width: 200,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
           <img
-            src={params.row.img}
-            alt={params.row.username}
+            src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avata.gif"}
+            alt="Avatar"
             className="cellImg"
           />
           <span>{params.row.username}</span>
@@ -21,19 +21,7 @@ export const userColumns = [
   { field: 'email', headerName: 'Email', width: 230 },
   { field: 'country', headerName: 'Country', width: 100 },
   { field: 'city', headerName: 'City', width: 100 },
-  { field: 'phone', headerName: 'Phone', width: 100 },
-  {
-    field: 'status',
-    headerName: 'Email',
-    width: 150,
-    renderCell: (params) => {
-      return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
-  },
+  { field: 'phone', headerName: 'Phone', width: 150 },
 ];
 
 export const userRows = [
