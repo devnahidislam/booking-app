@@ -14,7 +14,7 @@ const Datatable = () => {
   const path = location.pathname.split('/')[1];
 
   // const [data, setData] = useState(userRows);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState("");
   const { user } = useContext(AuthContext);
 
   const { data, loading, error } = useFetch(`${path}/${user._id}`);
@@ -26,7 +26,9 @@ const Datatable = () => {
   const handleDelete = async (id) => {
     console.log(`${path}/${id}`);
     try {
-      await axios.delete(`/${path}/${id}`);
+      // await axios.delete(`/${path}/${id}`);
+      await axios.delete(`localhost:5000/api/users/${id}`)
+        .then(() => this.setState({ status: 'Delete successful' }));
       setList(list.filter((item) => item._id !== id));
     } catch (error) {
       console.log(error);
