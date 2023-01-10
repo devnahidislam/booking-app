@@ -1,4 +1,4 @@
-import "./footer.css";
+import './footer.css';
 
 const Footer = () => {
   return (
@@ -44,7 +44,9 @@ const Footer = () => {
           <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="fText">Copyright &copy; 2022 DevNiN. All Rights Reserved.</div>
+      <div className="fText">
+        Copyright &copy; 2022 devnahidislam. All Rights Reserved.
+      </div>
     </div>
   );
 };
